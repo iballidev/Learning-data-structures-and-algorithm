@@ -6,6 +6,7 @@ Greedy Choice: Select items with the highest value-to-weight ratio first.
 JavaScript Code: */
 
 function fractionalKnapsack(items, capacity) {
+    console.log("items: ", items);
   items.sort((a, b) => b.value / b.weight - a.value / a.weight);
   console.log("items: ", items);
   let totalValue = 0;
@@ -13,6 +14,8 @@ function fractionalKnapsack(items, capacity) {
     if (capacity >= item.weight) {
       totalValue += item.value;
       capacity -= item.weight;
+
+      console.log("capacity: ", capacity)
     } else {
       totalValue += (item.value / item.weight) * capacity;
       break;
